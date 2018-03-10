@@ -1,0 +1,31 @@
+﻿<md-content>
+    <md-list flex>
+        <md-list-item class="md-2-line">
+            <div layout="row">
+                <md-input-container class="md-block">
+                    <label>Search</label>
+                    <input ng-model="$ctrl.searchText">
+                </md-input-container>
+                <md-input-container class="md-block">
+                    <label>Order By</label>
+                    <md-select ng-model="$ctrl.orderBy">
+                        <md-option value="name">Name</md-option>
+                        <md-option value="age">Age</md-option>
+                        <md-option value="country">Country</md-option>
+                    </md-select>
+                </md-input-container>
+            </div>
+        </md-list-item>
+        <md-subheader class="md-no-sticky">All celebrities</md-subheader>
+        <md-list-item class="md-6-line" ng-repeat="celebrity in $ctrl.celebrities | filter:$ctrl.searchText | orderBy:$ctrl.orderBy">
+            <celebrity-details celebrity="celebrity" is-new="false" on-update="$ctrl.updateCelebrity(celebrity)" on-delete="$ctrl.deleteCelebrity(celebrityId)"></celebrity-details>
+            <md-divider></md-divider>
+        </md-list-item>
+        <md-divider></md-divider>
+        <md-subheader class="md-no-sticky">Add new</md-subheader>
+        <md-list-item class="md-6-line">
+            <celebrity-details celebrity="{}" is-new="true" on-update="$ctrl.addCelebrity(celebrity)"></celebrity-details>
+        </md-list-item>
+    </md-list>
+</md-content>
+

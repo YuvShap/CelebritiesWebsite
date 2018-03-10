@@ -1,0 +1,27 @@
+﻿<div layout="row">
+    <div class="md-list-item-text" layout="column">
+        <md-input-container class="md-block">
+            <label>Name</label>
+            <input ng-model="$ctrl.celebrityToUpdate.name">
+        </md-input-container>
+        <md-input-container class="md-block">
+            <label>Age</label>
+            <input ng-model="$ctrl.celebrityToUpdate.age" type="number">
+        </md-input-container>
+        <md-input-container class="md-block">
+            <label>Country</label>
+            <input ng-model="$ctrl.celebrityToUpdate.country">
+        </md-input-container>
+    </div>
+    <section layout="row" layout-align="center center" layout-wrap>
+        <md-button class="md-icon-button md-primary" ng-click="$ctrl.refresh()">
+            <md-icon md-svg-icon="icons/refresh.svg"></md-icon>
+        </md-button>
+        <md-button class="md-icon-button md-primary" ng-click="$ctrl.save()" ng-disabled="!$ctrl.celebrityToUpdate.name.length">
+            <md-icon md-svg-icon="icons/save.svg"></md-icon>
+        </md-button>
+        <md-button class="md-icon-button md-primary" ng-show="!$ctrl.isNew" ng-click="$ctrl.delete()">
+            <md-icon md-svg-icon="icons/delete.svg"></md-icon>
+        </md-button>
+    </section>
+</div>
